@@ -14,8 +14,10 @@ public class Movie {
     String posterPath;
     String title;
     String overview;
+    String backdropPath;
 
     public Movie(JSONObject jsonObject) throws JSONException {
+        backdropPath = jsonObject.getString("backdrop_path");
         posterPath = jsonObject.getString("poster_path");
         title = jsonObject.getString("title");
         overview = jsonObject.getString("overview");
@@ -35,6 +37,11 @@ public class Movie {
     public String getPosterPath() {
         return String.format("https://image.tmdb.org/t/p/w342/%s",posterPath);
     }
+
+    public String getBackdropPath() {
+        return String.format("https://image.tmdb.org/t/p/w342/%s",backdropPath);
+    }
+
 
     public String getTitle() {
         return title;
